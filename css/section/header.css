@@ -1,0 +1,260 @@
+/* header */
+
+.header {
+    /* Абсолютное позиционирование (чтобы расположить шапку над секцией hero) */
+    position: absolute;
+    width: 100%;
+    /* Поместить поверх всех элементов */
+    z-index: 100;
+    padding-top: 29px;
+}
+
+/***** МЕНЮ *****/
+.menu {
+    display: flex;
+    /* Равномерно распределяет все элементы по ширине flex-блока.
+    Первый элемент вначале, последний в конце */
+    justify-content: space-between;
+    /* Отступы между колонками flex - контейнера */
+    column-gap: 10px;
+}
+
+/* Логотип*/
+.logo {
+    /* Сделать логотип flex - контейнером */
+    display: flex;
+    /* Убрать подчеркивание у ссылки */
+    text-decoration: none;
+    /* Выровнять текст по центру */
+    align-items: center;
+    /* Запретить логотипу ужиматься */
+    flex-shrink: 0;
+}
+
+/* Картинка логотипа */
+.logo__img {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+}
+
+/* Текст логотипа */
+.logo__title {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 120%;
+    /* Все буквы в верхнем регистре */
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+/* Список навигации */
+.nav__list {
+    display: flex;
+    column-gap: 30px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: #FFFFFF;
+}
+
+/* Применить к списку nav__list стили, если он находится внутри шапки */
+.header .nav__list {
+    background: #404F59;
+    border-radius: 0px 0px 10px 10px;
+    padding: 20px 40px;
+    margin-top: -29px;
+}
+
+/* Анимация на ссылке */
+.nav__link {
+    transition: all 0.3s;
+}
+
+/* Смена цвета ссылки при наведении */
+.nav__link:hover {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/***** Стилизация телефона внутри header *****/
+
+.phone {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.phone span {
+    color: #FFFFFF;
+}
+
+.phone__icon {
+    margin-right: 10px;
+    height: 24px;
+    width: 24px;
+    object-fit: contain;
+}
+
+.phone__link {
+    text-decoration: none;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    white-space: nowrap;
+}
+
+/***** ПОЛНОЭКРАННОЕ МЕНЮ *****/
+/* Полноэкранное меню появляется когда к блоку menu добавляется класс header__menu-mobile */
+
+.menu {
+    transition: all 0.4s;
+}
+
+
+/* Мобильное меню */
+.header__menu-mobile {
+    flex-direction: column;
+    justify-content: flex-start;
+    background: #1E92E7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    padding: 16px 16px 50px;
+    text-align: center;
+}
+
+/* Навигация внутри мобильного меню */
+.header__menu-mobile .nav {
+    align-self: center;
+    flex: 1;
+}
+
+/* Список элементов меню на мобильном устройстве */
+.header__menu-mobile .nav__list {
+    display: flex;
+    background: none;
+    margin-top: 54px;
+    padding: 0;
+    flex-direction: column;
+    row-gap: 30px;
+    /* Размер шрифта подобрал на глаз, чтобы не мелким был */
+    font-size: 36px;
+}
+
+/* Спрятать изображение логотипа белого цвета если он не находится внутри мобильного меню */
+.menu:not(.header__menu-mobile) .logo__img--white {
+    display: none;
+}
+
+/* Спрятать голубое изображение логотипа внутри мобильного меню */
+.header__menu-mobile .logo__img--blue {
+    display: none;
+}
+
+/* Прозрачный логотип внутри мобильного меню */
+.header__menu-mobile .logo {
+    opacity: 0.2;
+}
+
+/* Спрятать телефон который находится внутри мобильного меню */
+.header__menu-mobile-phone {
+    display: none;
+}
+
+/* Отобразить телефон внутри мобильного меню */
+.header__menu-mobile .header__menu-mobile-phone {
+    display: block;
+}
+
+/* Стили телефона в мобильном меню */
+.header__menu-mobile .header__menu-mobile-phone {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+
+/************* БУРГЕР ************/
+
+/* Бургер меню */
+.burger {
+    /* Скрываем на десктопах */
+    display: none;
+    /* Ширина и высота по макету */
+    width: 26px;
+    height: 20px;
+    /* Расположить поверх всех элементов */
+    z-index: 10;
+    /* Относительно кнопки будем позиционировать все три элемента бургера */
+    position: relative;
+}
+
+/* Элемент бургер меню */
+.burger__el {
+    display: block;
+    background: #FFFFFF;
+    border-radius: 1px;
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    transition: all 0.4s;
+}
+
+/* Прижать верхний элемент бургера к верхнему краю */
+.burger__el:nth-child(1) {
+    top: 0;
+}
+
+/* Расположить средний элемент по центру */
+.burger__el:nth-child(2) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Прижать нижний элемент бургера к нижнему краю */
+.burger__el:nth-child(3) {
+    bottom: 0;
+}
+
+
+/* Стили элементов бургера внутри мобильного меню */
+/* Бургер меню внутри полноэкранного меню */
+.header__menu-mobile .burger {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+}
+
+/* Спрятать средний элемент */
+.header__menu-mobile .burger__el:nth-child(2) {
+    display: none;
+}
+
+/* Повернуть верхний элемент на 45 градусов */
+.header__menu-mobile .burger__el:nth-child(1) {
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+/* Повернуть нижний элемент на -45 градусов */
+.header__menu-mobile .burger__el:nth-child(3) {
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) rotate(-45deg);
+}
+
+/************* БУРГЕР (конец) ************/

@@ -1,0 +1,362 @@
+/* До 1180px размер шрифта заголовка будет зависеть от ширины  */
+@media (max-width: 1180px) {
+    .title {
+        font-size: 4.75vw;
+    }
+}
+
+/* Начинаем перестраивать страницу в этой точке (тут она начинает ломаться) */
+@media (max-width: 860px) {
+
+    .header {
+        background: #404F59;
+        border-radius: 0px 0px 10px 10px;
+        padding: 16px 0px;
+    }
+
+    /* Бургрег был изначально спрятан */
+    .burger {
+        display: block;
+    }
+
+    /* Прячем меню в хедере */
+    .header__nav-list {
+        display: none;
+    }
+
+    /* Прячем телефон в хедере */
+    .header__phone {
+        display: none;
+    }
+
+    /* Размер шрифта мобильного меню */
+    .header__nav-mobile .nav__list {
+        /* Полноэкранное меню дизайнер нарисовал только на мобильнике
+        Измеряю там отношение шрифта к размеру области просмотра 16/375 = 4,3%
+        */
+        font-size: 4.3vw;
+    }
+
+    /* Размеры карточки с услугой */
+    .service {
+        width: calc((100% - 20px) / 2);
+    }
+}
+
+@media (max-width: 768px) {
+
+    :root {
+        --container-width: 93.1%;
+    }
+
+    /* Задаем ширину контейнера в процентах и убираем паддинги */
+    .container {
+        padding-right: 0;
+        padding-left: 0;
+        width: var(--container-width);
+    }
+
+    .hero {
+        padding-top: 90px;
+        /* Нижняя граница блока hero */
+        border-bottom-width: 30px;
+    }
+
+    .hero__content {
+        /* 304/540 = 56.3% */
+        flex-basis: 56.3%;
+        padding-top: 46px;
+    }
+
+    .title {
+        font-size: 31px;
+    }
+
+    /* Отодвигаем картинку как в макете (на 30px относительно своего местоположения) */
+    .hero__img {
+        left: 0;
+        transform: translateX(30px);
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .section {
+        padding: 0;
+    }
+
+    .rent,
+    .gallery,
+    .contacts {
+        padding-top: 90px;
+        padding-bottom: 70px;
+    }
+
+    /* Прячем блок с кнопками (секция Аренда) */
+    .rent__btns-list {
+        display: none;
+    }
+
+    /* Отображаем селект */
+    .rent__select-wrap {
+        display: inline-block;
+    }
+
+    .control_next {
+        right: 0px;
+    }
+
+    .control_prev {
+        left: 0px;
+    }
+
+    /* По макету карточка списка предложений справа выходит за пределы контейнера.
+    Можно указать отрицательный margin равный отступу справа.
+    Так как мы не знаем ширину устройства на котором открыта страница то такой отступ браузер должен считать автоматически.
+    Чтобы такое реализовать можно поступить следующим образом:
+    Вычесть ширину списка предложений из ширины области просмотра и разность разделить на -2
+    Например если ширина области просмотра 768px а ширина списка равна ширине контейнера (93.1%)
+    то есть 715px то получаем по формуле margin-right: -26.5px     
+    */
+    .offers-list {
+        margin-right: calc((100vw - 100%) / -2);
+    }
+
+    /* Ширина блока */
+    .offer {
+        width: 307px;
+    }
+
+    .offer__info {
+        padding: 33px 30px 30px;
+    }
+
+    /* Прозрачный фон у секции с услугами */
+    .services {
+        background-color: transparent;
+    }
+
+    /* Спрятать логотип у секции с услугами */
+    .services__logo {
+        display: none;
+    }
+
+    /* Меняем отображение на блочное, так как элементы перестраиваются и идут друг под другом */
+    .service {
+        display: block;
+        min-height: 251px;
+    }
+
+    /* Картинка изначально расположена по центру. Меняем положение картинки и фон под ней */
+    .service__img {
+        width: auto;
+        justify-content: flex-start;
+        background-color: transparent;
+        padding: 30px 20px 0;
+    }
+
+    .service__content {
+        padding: 20px 20px 30px 20px;
+    }
+
+    /* Меняем размер кнопок слайдера */
+    .control_type_disc {
+        width: 35px;
+        height: 35px;
+    }
+
+    /* Прячем треугольные стрелки которые находятся в секции "Аренда" */
+    .control_type_triangle {
+        display: none;
+    }
+
+    .gallery__slider-controls {
+        /*  top: 50% берется от родителя (то есть от gallery__slider) и с него вычмиаем половину высоты кнопки.
+        Это необходимо чтобы блок с кнопками gallery__slider-controls был ровно по центру родителя gallery__slider
+        */
+        top: calc(50% - 35px / 2);
+    }
+
+    /* Стрелки прижимаются к краям контейнера */
+    .gallery__slider-control-prev {
+        left: 0px;
+    }
+
+    .gallery__slider-control-next {
+        right: 0px;
+    }
+
+    /* В Фотогалереи появляется отступ слева. Высчитываем его при помощи функции calc */
+    .gallery__list {
+        column-gap: 14px;
+        /* Вычитаем из ширины вьюпорта ширину контейнера и делим получившееся значение на 2 */
+        padding-left: calc((100vw - var(--container-width))/2);
+    }
+
+    /* Элементу галереи (Блок с картинкой) устанавливаем размеры по макету и запрещаем увеличиваться и ужиматься */
+    .gallery__item {
+        flex: 0 0 432px;
+        height: 285px;
+    }
+
+    /* Меняем размеры буллетов */
+    .slider-indicator {
+        flex: 0 1 82px;
+    }
+
+    /* Для секции "Контакты" задаем двухцветный фон с помощью линейного градиента */
+    .contacts {
+        --contacts-left-col: 71.7%;
+        padding: 90px 0px;
+        background: linear-gradient(180deg, #2C3B45 0, #2C3B45 var(--contacts-left-col), #1E92E7 var(--contacts-left-col));
+        position: relative;
+    }
+
+    .contacts::before {
+        width: 100vw;
+        height: var(--contacts-left-col);
+        background: url(../../img/contacts/decor.svg) no-repeat bottom right / cover;
+    }
+
+    /* Меняем направление оси для контейнера секции контакты */
+    .contacts__container {
+        flex-direction: column;
+    }
+
+    /* Растягиваем блок с картой на всю ширину */
+    .contacts__map {
+        width: 100%;
+    }
+
+    /* Меняем направление оси кнтейнера футера */
+    .footer__container {
+        flex-direction: column;
+        text-align: center;
+        row-gap: 40px;
+    }
+
+    /* Убираем паддинги для навигационного списка */
+    .footer .nav__list {
+        flex-direction: column;
+        row-gap: 20px;
+        padding: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --container-width: 91.46%;
+    }
+
+    .header__menu-mobile .nav__list {
+        /* Размер шрифта как в дизайне*/
+        font-size: 16px;
+    }
+
+    .hero {
+        padding-top: 115px;
+    }
+
+    .hero__container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero__content {
+        /* 453/768 = 59% */
+        flex-basis: 59%;
+        padding-top: 0;
+        padding-right: 0;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .title {
+        font-size: 36px;
+    }
+
+    .address {
+        justify-content: center;
+    }
+
+    /* На мобильнике у нас две кнопки в hero */
+    .hero__btns {
+        gap: 15px 10px;
+        justify-content: center;
+    }
+
+    .hero__btn {
+        min-width: 230px;
+        padding: 9px 20px;
+        color: #FFFFFF;
+    }
+
+    /* Отобразить вторую кнопку */
+    .hero__btn:nth-child(2) {
+        display: inline-block;
+    }
+
+    /* Блок с фото занимаем всю ширину вьюпорта */
+    .hero__img-wrap {
+        width: 100vw;
+        border-radius: 0;
+        height: 484px;
+    }
+
+    /* Декоративный фон за облаками */
+    .hero__img-wrap::after {
+        display: none;
+    }
+
+    /* Возвращаем картинку по центру блока */
+    .hero__img {
+        height: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* Блок с облаками на мобильной версии меньше блока - родителя */
+    .hero__img-wrap:before {
+        top: auto;
+        bottom: 0;
+        height: 85%;
+    }
+
+    /* В макете отсутствует кнопка переключения слайдера "назад" */
+    .control_prev {
+        display: none;
+    }
+
+    /* Отключаем треугольные кнопки */
+    .control_type_triangle {
+        display: none;
+    }
+
+    .offers__control-next+.control_type_disc {
+        display: flex;
+    }
+
+    .service {
+        display: flex;
+        min-height: 152px;
+        width: 100%;
+    }
+
+    .service__img {
+        display: flex;
+        justify-content: center;
+        background-color: #2C3B45;
+        padding: 15px;
+    }
+
+    .service__content {
+        padding: 20px 20px 30px;
+    }
+
+    .gallery__item {
+        flex: 0 0 306px;
+        height: 202px;
+    }
+
+}

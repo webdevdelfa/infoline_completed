@@ -1,0 +1,159 @@
+/* hero */
+
+.hero {
+    /* Нижняя граница */
+    border-bottom: 50px solid #1E92E7;
+
+    /* Декоративное изображение */
+    background-image: url(../../img/hero/decor.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    /* Цвет секции */
+    background-color: #2C3B45;
+
+    /* Внутренний отступ от верхнего края */
+    padding-top: 132px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero__container {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.hero__content {
+    /* 602px/1180px = 51% */
+    flex-basis: 51%;
+    padding-right: 20px;
+    /* 92px / 1180px = 7,8% */
+    padding-top: 7.8%;
+    /* 199/1180 = 16.9 */
+    margin-bottom: 16.9%;
+}
+
+.address {
+    font-style: normal;
+    /* 36px / 602px = 6% */
+    margin-bottom: 6%;
+    display: flex;
+    align-items: center;
+}
+
+.address__icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.address__text {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #1E92E7;
+}
+
+.title {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    max-width: 488px;
+}
+
+.hero__title {
+    /* 48px/602px = 7.7% */
+    margin-bottom: 7.7%;
+}
+
+.hero__btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 10px;
+}
+
+.hero__btn {
+    min-width: 244px;
+}
+
+.hero__btn:nth-child(2) {
+    display: none;
+}
+
+/* Блок с фото здания */
+.hero__img-wrap {
+
+    /* Относительное позиционирование */
+    position: relative;
+
+    /* Скругление углов */
+    border-radius: 5px 0px 0px 0px;
+
+    /* Запретить блоку ужиматься */
+    flex-grow: 1;
+}
+
+/* Фото с облаками */
+.hero__img-wrap:before {
+    /* Без этого свойства псевдоэлемент не появится на странице */
+    content: "";
+
+    /* По умолчанию псевдоэлементы строчные. */
+    display: block;
+
+    /* Задаем картинку как фон */
+    background: url(../../img/hero/sky.jpg) center/cover no-repeat;
+
+    /* Устанавливаем ширину и высоту блока */
+    /* Ширина = ширине области просмотра окна браузера */
+    width: 100vw;
+    /* Высота растянется на высоту родительского блока */
+    height: 100%;
+
+    /* Абсолютное позииционирование */
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+
+    /* inherit - наследование значения указанного свойства у родителя */
+    border-radius: inherit
+}
+
+/* Блок за облаками */
+.hero__img-wrap::after {
+    content: "";
+    display: block;
+    background-color: #404F59;
+    width: 100vw;
+    height: 100%;
+    position: absolute;
+    left: 30px;
+    top: -15px;
+    z-index: -2;
+    border-radius: inherit
+}
+
+/* Фото здания */
+.hero__img {
+    height: 95%;
+    /* Картинка полностью поместится в указанные размеры, с сохранением пропорций */
+    object-fit: contain;
+
+    /* Позиционируем картинку по нижнему краю указанных размеров */
+    object-position: center bottom;
+
+    position: absolute;
+
+    /* Поместить картинку по горизонтали по центру */
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}

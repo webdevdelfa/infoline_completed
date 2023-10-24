@@ -1,0 +1,123 @@
+.overlay {
+    /* Анимация между состояниями элемента*/
+    transition: height none, all 0.4s;
+    height: 0;
+}
+
+/* Применить стили к блоку только в том случаи если у него есть класс active.
+Этот класс добавляется когда кликнули по кнопке "Заказать звонок"
+*/
+.overlay.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.20);
+    backdrop-filter: blur(7.5px);
+    -webkit-backdrop-filter: blur(7.5px);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Заранее задаю стили, но делаю форму прозрачной.
+Непрозрачной она станет когда будет клик по кнопке "Заказать звонок"
+*/
+
+.form__wrap {
+    max-width: 479px;
+    opacity: 0;
+    transition: all 0.4s;
+}
+
+/* Применить стили к форме только в том случаи если у предка с классом overlay есть класс active.
+Этот класс добавляется когда кликнули по кнопке "Заказать звонок"
+*/
+.overlay.active .form__wrap {
+    opacity: 1;
+}
+
+.form {
+    background-color: #fff;
+    overflow: hidden;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.form__close {
+    width: 30px;
+    height: 30px;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.form__close-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.form__header {
+    background-color: #1E92E7;
+    /* Слева и справа отступ примерный */
+    padding: 47px 30px;
+}
+
+.form__title {
+    text-align: center;
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 120%;
+    text-transform: uppercase;
+}
+
+.form__content {
+    /* 60/479=12% */
+    padding: 40px 12.5% 37px;
+}
+
+.form__row {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.form__row:last-child {
+    margin-bottom: 40px;
+}
+
+.form__input-name {
+    color: #000;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 120%;
+    margin-bottom: 5px;
+}
+
+.form__input {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #BFBFBF;
+    height: 50px;
+    /* Значения "на глаз" */
+    font-size: 20px;
+    padding: 5px 10px;
+}
+
+.form__btn-wrap {
+    margin-bottom: 20px;
+}
+
+.form__btn {
+    width: 100%;
+}
+
+.form__desc {
+    color: #9C9C9C;
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 120%;
+}

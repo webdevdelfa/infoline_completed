@@ -1,0 +1,102 @@
+/* УСЛУГИ */
+
+/* Стили секции */
+.services {
+    background-color: #F8F8F8;
+    padding: 90px 0px 120px;
+}
+
+/* Шапка секции (заголовок и логотип) */
+.services__header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+/* Меняем прозрачность картинки логотипа */
+.services .logo__img {
+    opacity: 0.4;
+}
+
+/* Меняем цвет текста логотипа */
+.services__logo .logo__title {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+/* Список услуг */
+.services__list {
+    display: flex;
+
+    /* если элементы не помещаются во flex-контейнер, то создает дополнительные ряды в контейнере 
+    для размещения элементов. При расположении в виде строки содаются дополнительные строки, 
+    а при расположении в виде столбца добавляются дополнительные столбцы */
+    flex-wrap: wrap;
+
+    /* Равномерно распределяет все элементы по ширине flex-блока.
+    Первый элемент вначале, последний в конце */
+    justify-content: space-between;
+
+    /* Расстояние между колонками контейнера */
+    row-gap: 20px;
+}
+
+/* Отдельная услуга */
+.service {
+
+    /* Ширину элемента браузер рассчитает автоматически (Ширина родителя - сумма отступов между элементами / количество элементов) */
+    width: calc((100% - 40px) / 3);
+
+    display: flex;
+    min-height: 172px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Иконка услуги (слева) */
+.service__img {
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2C3B45;
+
+    /* Запрещаем картинке ужиматься */
+    flex-shrink: 0;
+}
+
+/* Блок с описанием услуги */
+.service__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px 40px 30px 20px;
+}
+
+/* Заголовок блока с преимуществами */
+.service__title {
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+/* Список преимуществ*/
+.service__list {
+    /* Наследует свойство у родителя */
+    padding-left: inherit;
+}
+
+.service__item {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: #9C9C9C;
+    /* Возвращаем списку точки */
+    list-style-type: disc;
+}
