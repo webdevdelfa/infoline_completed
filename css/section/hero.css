@@ -73,17 +73,17 @@
     margin-bottom: 7.7%;
 }
 
-.hero__btns {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px 10px;
-}
 
 .hero__btn {
+    /* Установим минимальную ширину кнопки как в макете */
     min-width: 244px;
 }
 
+/* Обратимся ко второй кнопке.
+Зададим ей цвет текста и пока спрячем ее, она появится только на мобильнике 
+*/
 .hero__btn:nth-child(2) {
+    color: #FFFFFF;
     display: none;
 }
 
